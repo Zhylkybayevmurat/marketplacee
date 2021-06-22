@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:grocery_shop/models/models.dart';
-import 'package:grocery_shop/widgets/spinner_widget.dart';
 
 import '../../../mq.dart';
 import 'grocery_item.dart';
@@ -11,7 +10,7 @@ import 'package:http/http.dart' as http;
 
 Future<List<MGrocery>> fetchItem() async {
   final response =
-      await http.get(Uri.parse('https://34706f98feff.ngrok.io/api/items'));
+      await http.get(Uri.parse('https://af9952f19085.ngrok.io/api/items'));
 
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
@@ -38,7 +37,7 @@ class ExclusiveOffers extends StatelessWidget {
   Widget build(BuildContext context) {
     return FutureBuilder(
       future: _items,
-      builder: (context, snapshot) {
+      builder: (context, AsyncSnapshot snapshot) {
         if (snapshot.hasData) {
           return Container(
             height: MQuery.height * 0.3,
@@ -52,7 +51,7 @@ class ExclusiveOffers extends StatelessWidget {
           );
         }
 
-        return SpninnerWidget();
+        return CircularProgressIndicator();
       },
     );
   }

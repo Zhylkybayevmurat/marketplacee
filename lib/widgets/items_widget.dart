@@ -54,11 +54,11 @@
 //           title: Text('Fetch Data Example'),
 //         ),
 //         body: Center(
-//           child: FutureBuilder<MGrocery>(
+//           child: FutureBuilder(
 //             future: futureItems,
-//             builder: (context, snapshot) {
+//             builder: (context, AsyncSnapshot snapshot) {
 //               if (snapshot.hasData) {
-//                 return Text(snapshot.data!.discount.toString());
+//                 return Text(snapshot.data.discount.toString());
 //               } else if (snapshot.hasError) {
 //                 return Text("${snapshot.error}");
 //               }
