@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
 
 // Grocery item model
 class MGrocery {
@@ -21,11 +24,11 @@ class MGrocery {
   factory MGrocery.fromJson(Map<String, dynamic> json) {
     return MGrocery(
       id: json['id'],
-      title: json['title'],
-      description: json['description'],
+      title: json['product']['title' ],
+    description: json['product']['description'],
       price: json['price'],
       discount: json['discount'],
-      imageUrl: json['image_url'],
+      imageUrl: "assets/images/chicken.png",
     );
   }
 }

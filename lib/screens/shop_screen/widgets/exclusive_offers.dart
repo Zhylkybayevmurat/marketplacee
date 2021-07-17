@@ -10,12 +10,12 @@ import 'package:http/http.dart' as http;
 
 Future<List<MGrocery>> fetchItem() async {
   final response =
-      await http.get(Uri.parse('https://af9952f19085.ngrok.io/api/items'));
+      await http.get(Uri.parse('https://smartbazar.kz/api/items'));
 
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
     // then parse the JSON.
-    final List<MGrocery> _items = await jsonDecode(response.body)['data']
+    final List<MGrocery> _items = await jsonDecode(response.body)
         .map<MGrocery>((item) => MGrocery.fromJson(item))
         .toList();
     return _items;
